@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "outDir": "lib",
+    "sourceMap": true,
+    "inlineSources": true,
+    "module": "commonjs",
+    "target": "es5",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "lib": ["es2015", "es6", "es7"],
+    "types": ["node"]
+  },
+  "exclude": ["lib", "dist"]
+}
