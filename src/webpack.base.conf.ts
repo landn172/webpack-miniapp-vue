@@ -42,8 +42,7 @@ export default function getBaseWebpackConfig(config: IDefaultConfig) {
           enforce: 'pre',
           include: [resolve('src')],
           options: {
-            formatter: 'eslint-friendly-formatter',
-            eslintPath: 'eslint'
+            formatter: require('eslint-friendly-formatter')
           }
         },
         {
