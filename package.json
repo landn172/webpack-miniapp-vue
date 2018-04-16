@@ -1,11 +1,12 @@
 {
   "name": "@tuhu/webpack-miniapp-vue",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "main": "lib/index.js",
   "license": "MIT",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "watch": "npm run build && tsc -p tsconfig.json -w"
+    "watch": "npm run build && tsc -p tsconfig.json -w",
+    "prepublish": "npm run build"
   },
   "bin": {
     "wmv": "bin/index.js"
