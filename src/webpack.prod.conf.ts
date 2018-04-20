@@ -10,7 +10,7 @@ import { styleLoaders, assetsPath, resolve } from './utils'
 export default function getProdWebpackConfig(config: IDefaultConfig) {
   const baseWebpackConfig = getBaseWebpackConfig(config)
   const env = config.build.env
-  
+
   return merge(baseWebpackConfig, {
     module: {
       rules: styleLoaders({
@@ -68,9 +68,10 @@ export default function getProdWebpackConfig(config: IDefaultConfig) {
         minChunks: function(module, count) {
           // any required modules inside node_modules are extracted to vendor
           return (
-            module.resource &&
-            /\.js$/.test(module.resource) &&
-            module.resource.indexOf('node_modules') >= 0
+            (module.resource &&
+              /\.js$/.test(module.resource) &&
+              module.resource.indexOf('node_modules') >= 0) ||
+            count >= 2
           )
         }
       }),

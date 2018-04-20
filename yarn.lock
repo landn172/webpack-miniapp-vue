@@ -338,6 +338,10 @@ async-limiter@~1.0.0:
   version "1.0.0"
   resolved "http://registry.npm.taobao.org/async-limiter/download/async-limiter-1.0.0.tgz#78faed8c3d074ab81f22b4e985d79e8738f720f8"
 
+async@^1.5.2:
+  version "1.5.2"
+  resolved "http://registry.npm.taobao.org/async/download/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
+
 async@^2.1.2:
   version "2.6.0"
   resolved "http://registry.npm.taobao.org/async/download/async-2.6.0.tgz#61a29abb6fcc026fea77e56d1c6ec53a795951f4"
@@ -4708,6 +4712,14 @@ pkg-dir@^2.0.0:
 pluralize@^7.0.0:
   version "7.0.0"
   resolved "http://registry.npm.taobao.org/pluralize/download/pluralize-7.0.0.tgz#298b89df8b93b0221dbf421ad2b1b1ea23fc6777"
+
+portfinder@^1.0.13:
+  version "1.0.13"
+  resolved "http://registry.npm.taobao.org/portfinder/download/portfinder-1.0.13.tgz#bb32ecd87c27104ae6ee44b5a3ccbf0ebb1aede9"
+  dependencies:
+    async "^1.5.2"
+    debug "^2.2.0"
+    mkdirp "0.5.x"
 
 posix-character-classes@^0.1.0:
   version "0.1.1"

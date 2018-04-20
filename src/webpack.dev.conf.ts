@@ -48,9 +48,10 @@ export default function getDevWebpackConfig(config: IDefaultConfig) {
         minChunks: function(module, count) {
           // any required modules inside node_modules are extracted to vendor
           return (
-            module.resource &&
-            /\.js$/.test(module.resource) &&
-            module.resource.indexOf('node_modules') >= 0
+            (module.resource &&
+              /\.js$/.test(module.resource) &&
+              module.resource.indexOf('node_modules') >= 0) ||
+            count >= 2
           )
         }
       }),
