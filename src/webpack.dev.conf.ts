@@ -6,11 +6,7 @@ import * as ExtractTextPlugin from 'extract-text-webpack-plugin'
 import * as CopyWebpackPlugin from 'copy-webpack-plugin'
 import * as OptimizeCSSPlugin from 'optimize-css-assets-webpack-plugin'
 import getBaseWebpackConfig from './webpack.base.conf'
-import {
-  styleLoaders,
-  assetsPath,
-  resolve
-} from './utils'
+import { styleLoaders, assetsPath, resolve } from './utils'
 
 export default function getDevWebpackConfig(config: IDefaultConfig) {
   const baseWebpackConfig = getBaseWebpackConfig(config)
@@ -51,12 +47,9 @@ export default function getDevWebpackConfig(config: IDefaultConfig) {
         name: 'vendor',
         minChunks: function(module, count) {
           // any required modules inside node_modules are extracted to vendor
-          return (
-            (module.resource &&
-              /\.js$/.test(module.resource) &&
-              module.resource.indexOf('node_modules') >= 0) ||
-            count >= 2
-          )
+          if (!module.resource) return
+          if (!/\.js$/.test(module.resource)) return
+          return module.resource.indexOf('node_modules') >= 0 || count >= 2
         }
       }),
       new webpack.optimize.CommonsChunkPlugin({
