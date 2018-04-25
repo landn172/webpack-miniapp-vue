@@ -3,9 +3,14 @@ import * as fs from 'fs'
 import * as ExtractTextPlugin from 'extract-text-webpack-plugin'
 import * as merge from 'webpack-merge'
 
+const chokidar = require('chokidar')
+
 export const currentCli = process.cwd()
 
 export const resolve = filePath => path.resolve(currentCli, filePath)
+
+const watchProjectConfigHandles: Array<Function> = []
+let watcher
 
 /**
  * 获取项目中对webpack-miniapp-vue的配置
@@ -16,7 +21,24 @@ export const getProjectConfig = () => {
   if (!fs.existsSync(filePath)) {
     throw new Error(`can't find wmv.config.js: ${filePath}`)
   }
+  if (!watcher) {
+    watcher = chokidar.watch(filePath)
+    watcher.on('change', () => {
+      console.log('changing wmv.config.js')
+      watchProjectConfigHandles.forEach(handle => {
+        try {
+          handle()
+        } catch (err) {
+          console.error(err)
+        }
+      })
+    })
+  }
   return require(filePath)
+}
+
+export const addWatchProjectConfig = (handle: Function) => {
+  watchProjectConfigHandles.push(handle)
 }
 
 /**

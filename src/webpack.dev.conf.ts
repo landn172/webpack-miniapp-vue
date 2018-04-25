@@ -6,7 +6,11 @@ import * as ExtractTextPlugin from 'extract-text-webpack-plugin'
 import * as CopyWebpackPlugin from 'copy-webpack-plugin'
 import * as OptimizeCSSPlugin from 'optimize-css-assets-webpack-plugin'
 import getBaseWebpackConfig from './webpack.base.conf'
-import { styleLoaders, assetsPath, resolve } from './utils'
+import {
+  styleLoaders,
+  assetsPath,
+  resolve
+} from './utils'
 
 export default function getDevWebpackConfig(config: IDefaultConfig) {
   const baseWebpackConfig = getBaseWebpackConfig(config)
