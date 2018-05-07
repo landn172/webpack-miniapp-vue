@@ -6,7 +6,7 @@ import * as ExtractTextPlugin from 'extract-text-webpack-plugin'
 import * as CopyWebpackPlugin from 'copy-webpack-plugin'
 import * as OptimizeCSSPlugin from 'optimize-css-assets-webpack-plugin'
 import getBaseWebpackConfig from './webpack.base.conf'
-import { styleLoaders, assetsPath, resolve } from './utils'
+import { styleLoaders, assetsPath, resolve, createWebpackVenderPlugins } from './utils'
 
 export default function getDevWebpackConfig(config: IDefaultConfig) {
   const baseWebpackConfig = getBaseWebpackConfig(config)
@@ -43,19 +43,7 @@ export default function getDevWebpackConfig(config: IDefaultConfig) {
           safe: true
         }
       }),
-      new webpack.optimize.CommonsChunkPlugin({
-        name: 'vendor',
-        minChunks: function(module, count) {
-          // any required modules inside node_modules are extracted to vendor
-          if (!module.resource) return
-          if (!/\.js$/.test(module.resource)) return
-          return module.resource.indexOf('node_modules') >= 0 || count >= 2
-        }
-      }),
-      new webpack.optimize.CommonsChunkPlugin({
-        name: 'manifest',
-        chunks: ['vendor']
-      }),
+      ...createWebpackVenderPlugins(),
       // copy custom static assets
       new CopyWebpackPlugin([
         {

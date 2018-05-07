@@ -2,6 +2,7 @@ import * as path from 'path'
 import * as fs from 'fs'
 import * as ExtractTextPlugin from 'extract-text-webpack-plugin'
 import * as merge from 'webpack-merge'
+import * as webpack from 'webpack'
 
 const chokidar = require('chokidar')
 
@@ -11,6 +12,28 @@ export const resolve = filePath => path.resolve(currentCli, filePath)
 
 const watchProjectConfigHandles: Array<Function> = []
 let watcher
+
+/**
+ * 创建打包vendor的配置
+ */
+export const createWebpackVenderPlugins = () => {
+  return [
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks: function(module, count) {
+        // any required modules inside node_modules are extracted to vendor
+        if (!module.resource) return
+        return count >= 2
+      }
+    }),
+    // extract webpack runtime and module manifest to its own file in order to
+    // prevent vendor hash from being updated whenever app bundle is updated
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'manifest',
+      chunks: ['vendor']
+    })
+  ]
+}
 
 /**
  * 获取项目中对webpack-miniapp-vue的配置
@@ -72,6 +95,25 @@ export const assetsPath = (_path: string, config: IDefaultConfig) => {
   return path.posix.join(assetsSubDirectory, _path)
 }
 
+export const htmlLoaders = () => {
+  return {
+    html: [
+      {
+        test: /\.(html|wxml|axml)$/,
+        loader: resolveLocalModule('html-loader'),
+        options:
+          process.env.NODE_ENV === 'production'
+            ? {
+                minimize: true,
+                removeComments: true,
+                collapseWhitespace: true
+              }
+            : {}
+      }
+    ]
+  }
+}
+
 export const cssLoaders = (options: any = {}) => {
   const cssLoader = {
     loader: 'css-loader',
@@ -124,6 +166,8 @@ export const cssLoaders = (options: any = {}) => {
   // https://vue-loader.vuejs.org/en/configurations/extract-css.html
   return {
     css: generateLoaders(),
+    wxss: generateLoaders(),
+    acss: generateLoaders(),
     postcss: generateLoaders(),
     less: generateLoaders('less'),
     sass: generateLoaders('sass', { indentedSyntax: true }),

@@ -3,6 +3,8 @@ import getDefaultConfig from './config/index'
 import { resolve, assetsPath, ownDir, resolveLocalModule } from './utils'
 import getVueConfigLoader from './vue-loader.conf'
 
+const MpvuePlugin = require('webpack-mpvue-asset-plugin')
+
 export default function getBaseWebpackConfig(config: IDefaultConfig) {
   const vueLoaderConfig = getVueConfigLoader(config)
   // we can resolve own node_modules
@@ -22,7 +24,7 @@ export default function getBaseWebpackConfig(config: IDefaultConfig) {
           : config.dev.assetsPublicPath
     },
     resolve: {
-      extensions: ['.js', '.vue', '.json'],
+      extensions: ['.js', '.vue', '.json', 'wxml', 'html'],
       alias: {
         '@': resolve('src'),
         vue: 'mpvue'
@@ -88,6 +90,7 @@ export default function getBaseWebpackConfig(config: IDefaultConfig) {
           }
         }
       ]
-    }
+    },
+    plugins: [new MpvuePlugin()]
   }
 }
