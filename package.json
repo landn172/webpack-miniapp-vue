@@ -1,6 +1,6 @@
 {
   "name": "@tuhu/webpack-miniapp-vue",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "main": "lib/index.js",
   "license": "MIT",
   "scripts": {
@@ -50,8 +50,8 @@
     "http-proxy-middleware": "^0.17.3",
     "less": "^3.0.1",
     "less-loader": "^4.1.0",
-    "mpvue-loader": "^1.0.7",
-    "mpvue-template-compiler": "^1.0.5",
+    "mpvue-loader": "^1.0.13",
+    "mpvue-template-compiler": "^1.0.11",
     "mpvue-webpack-target": "^1.0.0",
     "node-sass": "^4.8.3",
     "opn": "^5.1.0",

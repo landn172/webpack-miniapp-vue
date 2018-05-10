@@ -4202,9 +4202,9 @@ move-concurrently@^1.0.1:
     rimraf "^2.5.4"
     run-queue "^1.0.3"
 
-mpvue-loader@^1.0.7:
-  version "1.0.10"
-  resolved "http://registry.npm.taobao.org/mpvue-loader/download/mpvue-loader-1.0.10.tgz#bf78263688478a5968487cd5652cad414114c47f"
+mpvue-loader@^1.0.13:
+  version "1.0.13"
+  resolved "http://registry.npm.taobao.org/mpvue-loader/download/mpvue-loader-1.0.13.tgz#2b759e5e9be266f49db55a14e2f5b5424805c2eb"
   dependencies:
     babelon "^1.0.5"
     consolidate "^0.14.0"
@@ -4222,9 +4222,9 @@ mpvue-loader@^1.0.7:
     vue-style-loader "^3.0.0"
     vue-template-es2015-compiler "^1.5.3"
 
-mpvue-template-compiler@^1.0.5:
-  version "1.0.7"
-  resolved "http://registry.npm.taobao.org/mpvue-template-compiler/download/mpvue-template-compiler-1.0.7.tgz#20d57afca6938b8bacb733f3c7517304cfe2c2e7"
+mpvue-template-compiler@^1.0.11:
+  version "1.0.11"
+  resolved "http://registry.npm.taobao.org/mpvue-template-compiler/download/mpvue-template-compiler-1.0.11.tgz#aab4f89c07b98030b8be3009002f8b953a2b4f68"
   dependencies:
     de-indent "^1.0.2"
     he "^1.1.0"
