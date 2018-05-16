@@ -1,6 +1,6 @@
-import { cssLoaders, htmlLoaders } from './utils'
+import { cssLoaders, htmlLoaders, cssH5Loader } from "./utils";
 
-const isProduction = true
+const isProduction = process.env.NODE_ENV === "production";
 
 export default function getVueConfigLoader(config: IDefaultConfig) {
   return {
@@ -9,15 +9,33 @@ export default function getVueConfigLoader(config: IDefaultConfig) {
         sourceMap: isProduction
           ? config.build.productionSourceMap
           : config.dev.cssSourceMap,
-        extract: isProduction
-      }),
-      ...htmlLoaders
+        extract: true
+      })
     },
     transformToRequire: {
-      video: 'src',
-      source: 'src',
-      img: 'src',
-      image: 'xlink:href'
+      video: "src",
+      source: "src",
+      img: "src",
+      image: "xlink:href"
     }
-  }
+  };
+}
+
+export function getH5VueConfigLoader(config: IDefaultConfig) {
+  return {
+    loaders: {
+      ...cssH5Loader({
+        sourceMap: isProduction
+          ? config.build.productionSourceMap
+          : config.dev.cssSourceMap,
+        extract: isProduction
+      })
+    },
+    transformToRequire: {
+      video: "src",
+      source: "src",
+      img: "src",
+      image: "xlink:href"
+    }
+  };
 }
