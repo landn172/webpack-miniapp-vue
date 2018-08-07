@@ -14,7 +14,7 @@ example: package.json
 
 ```json
 {
-  scripts: {
+  "scripts": {
     "watch:h5": "cross-env PLATFORM_ENV=h5 wmv dev"
   }
 }

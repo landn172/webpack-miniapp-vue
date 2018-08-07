@@ -4472,29 +4472,33 @@ move-concurrently@^1.0.1:
     rimraf "^2.5.4"
     run-queue "^1.0.3"
 
-mpvue-loader@^1.0.13:
-  version "1.0.13"
-  resolved "http://registry.npm.taobao.org/mpvue-loader/download/mpvue-loader-1.0.13.tgz#2b759e5e9be266f49db55a14e2f5b5424805c2eb"
+mpvue-loader@^1.1.0:
+  version "1.1.1"
+  resolved "http://registry.npm.taobao.org/mpvue-loader/download/mpvue-loader-1.1.1.tgz#d6d535b93cffb5966b4a2fac930042f8b61b2878"
   dependencies:
     babelon "^1.0.5"
     consolidate "^0.14.0"
+    deep-equal "^1.0.1"
     hash-sum "^1.0.2"
     js-beautify "^1.6.14"
     loader-utils "^1.1.0"
     lru-cache "^4.1.1"
+    mkdirp "^0.5.1"
     postcss "^6.0.6"
     postcss-load-config "^1.1.0"
     postcss-selector-parser "^2.0.0"
+    relative "^3.0.2"
     resolve "^1.3.3"
     source-map "^0.5.6"
+    upath "^1.1.0"
     vue-hot-reload-api "^2.1.0"
     vue-loader "^13.0.4"
     vue-style-loader "^3.0.0"
     vue-template-es2015-compiler "^1.5.3"
 
-mpvue-template-compiler@^1.0.11:
-  version "1.0.11"
-  resolved "http://registry.npm.taobao.org/mpvue-template-compiler/download/mpvue-template-compiler-1.0.11.tgz#aab4f89c07b98030b8be3009002f8b953a2b4f68"
+mpvue-template-compiler@^1.0.13:
+  version "1.0.13"
+  resolved "http://registry.npm.taobao.org/mpvue-template-compiler/download/mpvue-template-compiler-1.0.13.tgz#1e3e809a71dcf0d18e77bc3a370a4423510cfd24"
   dependencies:
     de-indent "^1.0.2"
     he "^1.1.0"
@@ -5866,6 +5870,12 @@ relateurl@0.2.x:
   version "0.2.7"
   resolved "http://registry.npm.taobao.org/relateurl/download/relateurl-0.2.7.tgz#54dbf377e51440aca90a4cd274600d3ff2d888a9"
 
+relative@^3.0.2:
+  version "3.0.2"
+  resolved "http://registry.npm.taobao.org/relative/download/relative-3.0.2.tgz#0dcd8ec54a5d35a3c15e104503d65375b5a5367f"
+  dependencies:
+    isobject "^2.0.0"
+
 remove-trailing-separator@^1.0.1:
   version "1.1.0"
   resolved "http://registry.npm.taobao.org/remove-trailing-separator/download/remove-trailing-separator-1.1.0.tgz#c24bce2a283adad5bc3f58e0d48249b92379d8ef"
@@ -6954,6 +6964,10 @@ unset-value@^1.0.0:
 upath@^1.0.0:
   version "1.0.4"
   resolved "http://registry.npm.taobao.org/upath/download/upath-1.0.4.tgz#ee2321ba0a786c50973db043a50b7bcba822361d"
+
+upath@^1.1.0:
+  version "1.1.0"
+  resolved "http://registry.npm.taobao.org/upath/download/upath-1.1.0.tgz#35256597e46a581db4793d0ce47fa9aebfc9fabd"
 
 upper-case@^1.1.1:
   version "1.1.3"
