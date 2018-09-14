@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "watch": "npm run build && tsc -p tsconfig.json -w",
+    "watch": "tsc -p tsconfig.json -w",
     "prepublish": "npm run build"
   },
   "bin": {
@@ -19,12 +19,11 @@
     "README.md"
   ],
   "dependencies": {
-    "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
-    "babel-eslint": "^8.2.2",
-    "babel-loader": "^7.1.1",
+    "babel-eslint": "^8.2.6",
+    "babel-loader": "^7.1.5",
     "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.6.1",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-stage-2": "^6.24.1",
     "babel-preset-vue": "^2.0.2",
     "chalk": "^2.4.1",
@@ -54,11 +53,11 @@
     "http-proxy-middleware": "^0.17.3",
     "less": "^3.0.1",
     "less-loader": "^4.1.0",
-    "mpvue-loader": "1.1.0",
+    "mpvue": "^1.0.13",
+    "mpvue-loader": "1.1.2",
     "mpvue-template-compiler": "1.0.13",
-    "mpvue-webpack-target": "^1.0.0",
+    "mpvue-webpack-target": "^1.0.1",
     "node-sass": "^4.8.3",
-    "opn": "^5.1.0",
     "optimize-css-assets-webpack-plugin": "^2.0.0",
     "ora": "^1.2.0",
     "portfinder": "^1.0.13",
@@ -76,6 +75,7 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "uglifyjs-webpack-plugin": "^1.2.5",
+    "upath": "1.1.0",
     "url-loader": "^0.5.8",
     "vue": "^2.5.16",
     "vue-loader": "^15.0.10",
@@ -89,7 +89,7 @@
     "webpack-dev-server": "2",
     "webpack-hot-middleware": "^2.18.0",
     "webpack-merge": "^4.1.0",
-    "webpack-mpvue-asset-plugin": "^0.0.2"
+    "webpack-mpvue-asset-plugin": "^0.1.1"
   },
   "engines": {
     "node": ">= 8.0.0",
