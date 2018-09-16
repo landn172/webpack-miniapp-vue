@@ -4,6 +4,8 @@
 
 基于 mpvue 官方[quickstart](https://github.com/mpvue/mpvue-quickstart)封装编译编译部分代码为了开箱即用、统一编译（方便日后升级）,不用每个项目都引入**build/**
 
+* v1.3.0 将mpvue-loader升级到 ^1.1.2 注意mpvue的官方文档变更, 如果使用mpvue-entry需要升级到^1.5.0
+
 ### 支持 h5 编译
 
 **v1.2.0** 起支持 h5 编译支持
