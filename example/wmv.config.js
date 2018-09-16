@@ -5,7 +5,10 @@ const path = require('path');
 // hack mpvue-entry require.main.filename
 require.main.filename = path.resolve(process.cwd(), 'src/main.js');
 
-const entry = MpvueEntry.getEntry('./src/pages.js');
+const entry = MpvueEntry.getEntry({
+  pages: './src/pages.js',
+  app: './src/app.json',
+});
 
 function resolve(dir) {
   return path.join(__dirname, dir);
@@ -45,16 +48,6 @@ module.exports = {
           ],
         },
       ],
-    },
-    externals: {
-      plugin: ` new Promise((resolve)=>{
-        var interval = setInterval(()=>{
-          if(wx.TuhuPluginModule){
-            clearInterval(interval)
-            resolve(wx.TuhuPluginModule)
-          }
-        },100)
-      })`,
     },
     plugins: [new MpvueEntry()],
   },

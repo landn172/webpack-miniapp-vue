@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "build": "node ../bin/index build",
+    "watch": "node ../bin/index dev"
+  },
   "dependencies": {
     "mpvue-entry": "^1.5.4"
   }

@@ -34,8 +34,8 @@ export default function getProdWebpackConfig(config: IDefaultConfig) {
       path: config.build.assetsRoot,
       // filename: utils.assetsPath('js/[name].[chunkhash].js'),
       // chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
-      filename: assetsPath("js/[name].js", config),
-      chunkFilename: assetsPath("js/[id].js", config)
+      filename: assetsPath("[name].js", config),
+      chunkFilename: assetsPath("[id].js", config)
     },
     plugins: [
       // http://vuejs.github.io/vue-loader/en/workflow/production.html
@@ -48,7 +48,7 @@ export default function getProdWebpackConfig(config: IDefaultConfig) {
       // extract css into its own file
       new ExtractTextPlugin({
         // filename: utils.assetsPath('css/[name].[contenthash].css')
-        filename: assetsPath("css/[name].wxss", config)
+        filename: assetsPath("[name].wxss", config)
       }),
       // Compress extracted CSS. We are using this plugin so that possible
       // duplicated CSS from different components can be deduped.
@@ -68,7 +68,7 @@ export default function getProdWebpackConfig(config: IDefaultConfig) {
           from: resolve("static"),
           to: path.resolve(
             config.build.assertsRoot,
-            config.build.assetsSubDirectory
+            config.build.assetsStaticPath
           ),
           ignore: [".*"]
         }
@@ -170,7 +170,7 @@ export function getH5ProdWebpackConfig(config: IDefaultConfig) {
           from: resolve("static"),
           to: path.resolve(
             config.build.assertsRoot,
-            config.build.assetsSubDirectory
+            config.build.assetsStaticPath
           ),
           ignore: [".*"]
         }

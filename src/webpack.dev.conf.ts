@@ -1,21 +1,21 @@
-import * as webpack from "webpack";
-import * as merge from "webpack-merge";
-import * as FriendlyErrorsPlugin from "friendly-errors-webpack-plugin";
-import * as path from "path";
-import * as ExtractTextPlugin from "extract-text-webpack-plugin";
-import * as CopyWebpackPlugin from "copy-webpack-plugin";
-import * as OptimizeCSSPlugin from "optimize-css-assets-webpack-plugin";
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+import * as webpack from 'webpack';
+import * as merge from 'webpack-merge';
+import * as FriendlyErrorsPlugin from 'friendly-errors-webpack-plugin';
+import * as path from 'path';
+import * as ExtractTextPlugin from 'extract-text-webpack-plugin';
+import * as CopyWebpackPlugin from 'copy-webpack-plugin';
+import * as OptimizeCSSPlugin from 'optimize-css-assets-webpack-plugin';
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 import getBaseWebpackConfig, {
   getH5BaseWebpackConfig
-} from "./webpack.base.conf";
+} from './webpack.base.conf';
 import {
   styleLoaders,
   assetsPath,
   resolve,
   createWebpackVenderPlugins
-} from "./utils";
+} from './utils';
 
 export default function getDevWebpackConfig(config: IDefaultConfig) {
   const baseWebpackConfig = getBaseWebpackConfig(config);
@@ -26,24 +26,24 @@ export default function getDevWebpackConfig(config: IDefaultConfig) {
         extract: true
       })
     },
-    devtool: "#source-map",
+    devtool: '#source-map',
     output: {
       path: config.build.assertsRoot,
       // filename: utils.assetsPath('js/[name].[chunkhash].js'),
       // chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
-      filename: assetsPath("js/[name].js", config),
-      chunkFilename: assetsPath("js/[id].js", config)
+      filename: assetsPath('[name].js', config),
+      chunkFilename: assetsPath('[id].js', config)
     },
     plugins: [
       new webpack.DefinePlugin({
-        "process.env": config.dev.env
+        'process.env': config.dev.env
       }),
 
       // copy from ./webpack.prod.conf.js
       // extract css into its own file
       new ExtractTextPlugin({
         // filename: utils.assetsPath('css/[name].[contenthash].css')
-        filename: assetsPath("css/[name].wxss", config)
+        filename: assetsPath('[name].wxss', config)
       }),
       // Compress extracted CSS. We are using this plugin so that possible
       // duplicated CSS from different components can be deduped.
@@ -56,9 +56,9 @@ export default function getDevWebpackConfig(config: IDefaultConfig) {
       // copy custom static assets
       new CopyWebpackPlugin([
         {
-          from: resolve("./static"),
-          to: config.build.assetsSubDirectory,
-          ignore: [".*"]
+          from: resolve('./static'),
+          to: path.join(config.build.assertsRoot, 'static'),
+          ignore: ['.*']
         }
       ]),
 
@@ -85,14 +85,14 @@ export function getH5DevWebpackConfig(config: IDefaultConfig) {
         extract: false
       })
     },
-    devtool: "#source-map",
+    devtool: '#source-map',
     devServer: {
-      clientLogLevel: "warning",
+      clientLogLevel: 'warning',
       historyApiFallback: {
         rewrites: [
           {
             from: /.*/,
-            to: path.posix.join(config.dev.assetsPublicPath, "index.html")
+            to: path.posix.join(config.dev.assetsPublicPath, 'index.html')
           }
         ]
       },
@@ -114,22 +114,22 @@ export function getH5DevWebpackConfig(config: IDefaultConfig) {
     },
     plugins: [
       new webpack.DefinePlugin({
-        "process.env": config.dev.env
+        'process.env': config.dev.env
       }),
       new webpack.HotModuleReplacementPlugin(),
       new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.
       new webpack.NoEmitOnErrorsPlugin(),
       // https://github.com/ampedandwired/html-webpack-plugin
       new HtmlWebpackPlugin({
-        template: "index.html",
+        template: 'index.html',
         inject: true
       }),
       // copy custom static assets
       new CopyWebpackPlugin([
         {
-          from: resolve("./static"),
-          to: config.dev.assetsSubDirectory,
-          ignore: [".*"]
+          from: resolve('./static'),
+          to: config.dev.assetsStaticPath,
+          ignore: ['.*']
         }
       ])
     ]

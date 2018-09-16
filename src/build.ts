@@ -15,11 +15,7 @@ export default function runBuild(
 ) {
   const spinner = ora("building for production...");
   spinner.start();
-  const distPath = path.join(
-    config.build.assertsRoot,
-    config.build.assetsSubDirectory
-  );
-  rm(distPath, err => {
+  rm(path.join(config.build.assertsRoot, '*'), err => {
     if (err) throw err;
     const getWebpackConfig = isH5Platform
       ? getH5ProdWebpackConfig
