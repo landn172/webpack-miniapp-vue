@@ -47,7 +47,7 @@ export const getProjectConfig = (isH5 = false) => {
   if (!fs.existsSync(filePath)) {
     throw new Error(`can't find ${configName}: ${filePath}`);
   }
-  if (!watcher) {
+  if (!watcher && process.env.WMV_WATCH_MODE === "true") {
     watcher = chokidar.watch(filePath);
     watcher.on("change", () => {
       console.log(`changing ${configName}`);

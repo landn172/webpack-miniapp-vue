@@ -27,7 +27,7 @@ export function buildH5(webpackConfig) {
 
 export function dev(webpackConfig) {
   console.log("start run dev...");
-
+  process.env.WMV_WATCH_MODE = "true"
   const defaultConfig = getDefaultConfig();
   const config = getMergedEnvConfig(defaultConfig);
   const localWebpackConfig = webpackConfig || getProjectWebpackConfig();
@@ -36,6 +36,7 @@ export function dev(webpackConfig) {
 
 export function devH5(webpackConfig) {
   console.log("start run dev...");
+  process.env.WMV_WATCH_MODE = "true"
   const defaultConfig = getDefaultConfig();
   const config = getMergedEnvConfig(defaultConfig, true);
   const localWebpackConfig = webpackConfig || getProjectWebpackConfig(true);
